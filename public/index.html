@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script>
+			const ws = new WebSocket('ws://127.0.0.1:3000/')
+			ws.onopen = () => ws.send('Fetch initial data')
+			ws.onmessage = (event) => {
+				const { data } = event
+				document.getElementsByTagName('body')[0].innerText = data
+			}
+		</script>
+		<title>Log Viewer</title>
+	</head>
+	<body>
+		
+	</body>
+</html>
